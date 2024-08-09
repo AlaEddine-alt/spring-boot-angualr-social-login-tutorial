@@ -1,0 +1,54 @@
+spring:
+  application:
+    name: sahameter
+  datasource:
+    url: jdbc:postgresql://localhost:5432/social-login-demo
+    username: oussema
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: YourClientId
+            client-secret: YourClientSecret
+
+
+application:
+  security:
+    jwt:
+      secret-key: YourSecret
+      expiration: 86400000 # a day
+  cors:
+    allowed-origins: http://localhost:4200
+  auth-code:
+    expiration: 172800 # 2 days
+
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    operationsSorter: method
+    path: /swagger-ui.html
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
+server:
+  port: 9000
+  servlet:
+    context-path: /api/v1

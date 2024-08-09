@@ -1,0 +1,48 @@
+@if(user){
+<div
+  class="flex flex-col items-center justify-center bg-gray-100 p-6 rounded-lg shadow-lg"
+>
+  <h1 class="text-3xl font-bold mb-4">Home</h1>
+  <img
+    [src]="user.profilePictureUrl"
+    alt="Profile pic"
+    class="rounded-full h-36 w-36 mb-4 border-4 border-gray-300"
+  />
+  <p class="text-lg mb-2">
+    Welcome to the home page!
+    <span class="font-bold text-blue-600"
+      >{{ user.firstName }} {{ user.lastName }}</span
+    >
+  </p>
+  <p class="text-lg mb-2">
+    You are currently logged in with
+    <span class="font-bold text-green-600">{{ user.provider }}</span>
+  </p>
+  <p class="text-lg mb-2">
+    Email: <span class="font-bold">{{ user.email }}</span>
+  </p>
+  <p class="text-lg mb-2">
+    Email Verified:
+    <span class="font-bold">{{ user.emailVerified ? "Yes" : "No" }}</span>
+  </p>
+  <p class="text-lg mb-2">
+    Account Enabled:
+    <span class="font-bold">{{ user.enabled ? "Yes" : "No" }}</span>
+  </p>
+  <p class="text-lg mb-2">
+    Account Created At:
+    <span class="font-bold">{{ user.createdAt | date : "medium" }}</span>
+  </p>
+  <p class="text-lg mb-2">
+    Last Updated At:
+    <span class="font-bold">{{ user.updatedAt | date : "medium" }}</span>
+  </p>
+</div>
+
+}@else {
+<div
+  class="flex flex-col items-center justify-center bg-gray-100 p-6 rounded-lg shadow-lg"
+>
+  loading...
+</div>
+}

@@ -1,0 +1,13 @@
+<div class="flex flex-col gap-3 items-center justify-center h-screen w-screen">
+  Social login demo with Spring Boot and Angular
+  <!-- The Google login button will be rendered from the TypeScript file using Renderer2.
+         This is necessary because the button needs to be rendered after the view is initialized.
+         Additionally, the Google script loads only once, so it must be reloaded each time the login component is initialized.
+    -->
+
+  <div class="max-w-4xl" #googleButton></div>
+</div>
+<!-- The router-outlet is needed to render child routes.
+       Without it, /login/callback won't work because /callback is a child route of /login.
+  -->
+<router-outlet></router-outlet>
