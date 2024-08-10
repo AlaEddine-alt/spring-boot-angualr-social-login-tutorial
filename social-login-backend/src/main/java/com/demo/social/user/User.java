@@ -52,8 +52,6 @@ public class User implements UserDetails, Principal {
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    @Column(name = "password", unique = true)
-    private String password;
 
     @Column(name = "phoneNumber")
     private String phoneNumber;
@@ -131,7 +129,7 @@ public class User implements UserDetails, Principal {
 
     @Override
     public String getPassword() {
-        return password;
+        return null;
     }
 
     /**
