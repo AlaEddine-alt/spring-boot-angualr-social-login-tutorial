@@ -44,6 +44,7 @@ public class User implements UserDetails, Principal {
     @Column(name = "providerId", unique = true)
     private String providerId;
 
+    @Column(name = "provider")
     private String provider;
 
     @Column(name = "lastName", nullable = false)

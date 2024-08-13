@@ -27,7 +27,8 @@ public class SecurityConfig {
     private final Oauth2LoginSuccessHandler oauth2LoginSuccessHandler;
     private final Oauth2LoginFailureHandler oauth2LoginFailureHandler;
 
-    private static final String[] AUTH_WHITE_LIST = {"/api/v1/auth/**",
+    private static final String[] AUTH_WHITE_LIST = {
+        "/api/v1/auth/**",
             "/v2/api-docs",
             "/v3/api-docs",
             "/v3/api-docs/**",
@@ -48,7 +49,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
                                 .requestMatchers(AUTH_WHITE_LIST).permitAll()
-                                .anyRequest().permitAll()
+                                .anyRequest().authenticated()
                 )
                 // Add the JWT filter before the UsernamePasswordAuthenticationFilter
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
